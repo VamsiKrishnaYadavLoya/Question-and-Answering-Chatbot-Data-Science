@@ -56,7 +56,6 @@ def compute_pairwise_correlations(df):
 def create_visualization(df):
     
     #create a histogram for question data
-    df = pd.read_csv('data_processed/squad_qa_processed.csv')
     plt.figure(figsize=(8, 6))
     sns.histplot(df['question tokens'], kde=True, color='skyblue', edgecolor='black')
     plt.title(f'Histogram of question tokens')
