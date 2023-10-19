@@ -1,0 +1,4 @@
+                   char_count word_count unique_word_count
+char_count           1.000000                             
+word_count           0.939994        1.0                  
+unique_word_count    0.934806   0.984534               1.0
