@@ -1,0 +1,10 @@
+Summary Statistics for Qualitative Features:
+ Feature Number of Categories                                                                                   Most Frequent Category                                                 Least Frequent Category
+question                19932 [Which Caribbean nation is in the top quartile of HDI (but missing IHDI)?, Who won this season of Idol?] To whom did the Virgin Mary allegedly appear in 1858 in Lourdes France?
+ answers                14771                                                                                                  [three]                                              Saint Bernadette Soubirous
+
+Summary Statistics for Quantitative Features:
+                     count      mean        std  min   25%   50%   75%    max
+char_count         20000.0  60.85265  21.868984  1.0  45.0  58.0  73.0  212.0
+word_count         20000.0  10.38255   3.648461  1.0   8.0  10.0  12.0   34.0
+unique_word_count  20000.0  10.05950   3.310318  1.0   8.0  10.0  12.0   29.0
