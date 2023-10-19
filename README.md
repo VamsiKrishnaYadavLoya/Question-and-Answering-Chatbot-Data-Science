@@ -5,5 +5,5 @@ At this time, this project has not been cleared by the course staff (R. Acuna) f
 ### Large Data File
 File name: data_processed/squad_qa_processed.csv
 To access the large data file, please follow this link:
-https://drive.google.com/drive/u/1/my-drive
+https://drive.google.com/file/d/1TsyBkPBxxeX32ETdVbYe_z2yDlsm8i3p/view
 Since it is a large file I have given the link as suggested by professor
