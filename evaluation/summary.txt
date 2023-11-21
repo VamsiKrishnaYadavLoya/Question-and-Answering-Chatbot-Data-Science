@@ -1,0 +1,5 @@
+model_name	accuracy	precision	recall
+KNN_TF-IDF_K_equals_to_five	0.74	0.73	0.72
+KNN_BOW_K_equals_to_five	0.8	0.8	0.79
+KNN_BOW_K_equals_to_one	0.63	0.64	0.62
+KNN_Count_K_equals_to_one	0.58	0.59	0.57

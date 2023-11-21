@@ -8,7 +8,8 @@ def compute_summary_statistics(df):
     # Qualitative features
     qual_features = ['question', 'answers']
 
-    summary_statistics = pd.DataFrame(columns=['Feature', 'Number of Categories', 'Most Frequent Category', 'Least Frequent Category'])
+    # Initialize an empty list to store DataFrames
+    dfs_to_concat = []
 
     # Calculate summary statistics for qualitative features
     for feature in qual_features:
@@ -16,12 +17,19 @@ def compute_summary_statistics(df):
         most_frequent_category = df[feature].mode().to_list()
         least_frequent_category = df[feature].value_counts(ascending=True).index[0]
 
-        summary_statistics = summary_statistics.append({
-            'Feature': feature,
-            'Number of Categories': num_categories,
-            'Most Frequent Category': most_frequent_category,
-            'Least Frequent Category': least_frequent_category
-        }, ignore_index=True)
+        # Create a DataFrame for each feature's summary statistics
+        feature_df = pd.DataFrame({
+            'Feature': [feature],
+            'Number of Categories': [num_categories],
+            'Most Frequent Category': [most_frequent_category],
+            'Least Frequent Category': [least_frequent_category]
+        })
+
+        # Directly add the DataFrame to the list
+        dfs_to_concat += [feature_df]
+
+    # Concatenate the list of DataFrames into a single DataFrame
+    summary_statistics = pd.concat(dfs_to_concat, ignore_index=True)
 
     # Calculate describe statistics for the selected features
     selected_features = ['char_count', 'word_count', 'unique_word_count']
@@ -35,6 +43,8 @@ def compute_summary_statistics(df):
         file.write(summary_statistics.to_string(index=False))
         file.write("\n\nSummary Statistics for Quantitative Features:\n")
         file.write(statistics.to_string())
+
+
 
 def compute_pairwise_correlations(df):
     
@@ -55,24 +65,29 @@ def compute_pairwise_correlations(df):
 
 def create_visualization(df):
     
+  
     #create a histogram for question data
-    plt.figure(figsize=(8, 6))
-    sns.histplot(df['question tokens'], kde=True, color='skyblue', edgecolor='black')
-    plt.title(f'Histogram of question tokens')
-    plt.xlabel('question tokens') #x-axis represents the question number
-    plt.ylabel('Frequency') #the number of times the question was taken.
-    plt.grid(True)
-    plt.tight_layout()
+    df['question_tokens'] = df['question tokens'].apply(lambda x: len(x))
+    plt.figure(figsize=(8, 6))  # Adjust the figure size as needed
+    print("Yes")
+    plt.hist(df['question_tokens'], bins=10, color='skyblue', edgecolor='black')
+    plt.xlabel('Question Tokens')
+    plt.ylabel('Frequency')
+    plt.title('Histogram of Question Tokens')
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.show()
     plt.savefig('visuals/question_histogram.png',dpi=300, bbox_inches='tight') # Save the plot as a .png file
 
     #create a histogram for answer data
-    plt.figure(figsize=(8, 6))
-    sns.histplot(df['answers'], kde=True, color='skyblue', edgecolor='black')
-    plt.title(f'Histogram of answer tokens')
-    plt.xlabel('answer tokens') #x-axis represents the answer number
-    plt.ylabel('Frequency') #the number of times the answer was taken.
-    plt.grid(True)
-    plt.tight_layout()
+    df['answer_tokens'] = df['answer tokens'].apply(lambda x: len(x))
+    plt.figure(figsize=(8, 6))  # Adjust the figure size as needed
+    print("Yes")
+    plt.hist(df['answer_tokens'], bins=10, color='skyblue', edgecolor='black')
+    plt.xlabel('Answer Tokens')
+    plt.ylabel('Frequency')
+    plt.title('Histogram of Answer Tokens')
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.show()
     plt.savefig('visuals/answer_histogram.png',dpi=300, bbox_inches='tight') # Save the plot as a .png file
     
     
