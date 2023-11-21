@@ -75,8 +75,8 @@ def create_visualization(df):
     plt.ylabel('Frequency')
     plt.title('Histogram of Question Tokens')
     plt.grid(axis='y', linestyle='--', alpha=0.7)
-    plt.show()
     plt.savefig('visuals/question_histogram.png',dpi=300, bbox_inches='tight') # Save the plot as a .png file
+    plt.show()
 
     #create a histogram for answer data
     df['answer_tokens'] = df['answer tokens'].apply(lambda x: len(x))
@@ -87,8 +87,8 @@ def create_visualization(df):
     plt.ylabel('Frequency')
     plt.title('Histogram of Answer Tokens')
     plt.grid(axis='y', linestyle='--', alpha=0.7)
-    plt.show()
     plt.savefig('visuals/answer_histogram.png',dpi=300, bbox_inches='tight') # Save the plot as a .png file
+    plt.show()
     
     
     # Create box plots
