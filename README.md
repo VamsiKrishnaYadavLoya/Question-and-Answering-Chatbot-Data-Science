@@ -7,3 +7,5 @@ File name: data_processed/squad_qa_processed.csv
 To access the large data file, please follow this link:
 https://drive.google.com/file/d/1TsyBkPBxxeX32ETdVbYe_z2yDlsm8i3p/view
 Since it is a large file I have given the link as suggested by professor
+ Note: For prior to running the wf_ml_evaluation.py update the data_processed folder by uploading file from the above google drive 
+      link. As github doesn't allow us to upload file larger than 25MB. 
